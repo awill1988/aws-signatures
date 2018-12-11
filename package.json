@@ -1,0 +1,83 @@
+{
+  "name": "aws-signatures",
+  "version": "0.0.1",
+  "private": true,
+  "description": "Utilities to generate AWS V4 Signatures",
+  "main": "lib/aws-signatures.umd.js",
+  "module": "src/index.ts",
+  "typings": "lib/index.d.ts",
+  "lint": "tslint --project tsconfig.json --config tslint.json",
+  "react-native": {
+    "react-dom/server": false
+  },
+  "scripts": {
+    "deploy": "cd lib && npm publish",
+    "compile": "tsc && mv lib/src/* lib/. && rimraf lib/src",
+    "filesize": "bundlesize",
+    "postcompile": "rollup -c  && ./scripts/prepare-package.sh",
+    "precompile": "rimraf lib",
+    "predeploy": "npm run compile",
+    "prefilesize": "npm run compile",
+    "type-check": "tsc --project tsconfig.json --noEmit ",
+    "start": "gulp",
+    "prestart": "rimraf lib"
+  },
+  "dependencies": {
+    "crypto-js": "^3.1.9-1"
+  },
+  "babel": {
+    "presets": [
+      "env"
+    ]
+  },
+  "bundlesize": [
+    {
+      "path": "./dist/bundlesize.js",
+      "maxSize": "12.5 KB"
+    }
+  ],
+  "devDependencies": {
+    "@types/crypto-js": "^3.1.43",
+    "@types/jest": "^23.3.10",
+    "@types/node": "8.10.38",
+    "bundlesize": "^0.17.0",
+    "gulp": "^4.0.0",
+    "gulp-run": "^1.7.1",
+    "jest": "^23.5.0",
+    "rimraf": "2.6.2",
+    "rollup": "^0.67.4",
+    "rollup-plugin-commonjs": "9.2.0",
+    "rollup-plugin-json": "^3.1.0",
+    "rollup-plugin-node-resolve": "3.4.0",
+    "rollup-plugin-replace": "2.1.0",
+    "rollup-plugin-typescript": "^1.0.0",
+    "rollup-plugin-uglify": "^6.0.0",
+    "ts-jest": "^23.10.4",
+    "ts-loader": "^5.3.0",
+    "tslint": "^5.11.0",
+    "typescript": "^3.2.2",
+    "typescript-require": "^0.2.10"
+  },
+  "jest": {
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.tsx?$": "ts-jest"
+    },
+    "testPathIgnorePatterns": [
+      "/lib/",
+      "/node_modules/",
+      ".*/*.seeds.ts$"
+    ],
+    "testRegex": "./*/*\\.spec\\.(ts)$"
+  },
+  "author": "Adam T. Williams",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "awill1988/aws-signatures"
+  }
+}
