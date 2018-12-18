@@ -24,7 +24,6 @@ node -e "var package = require('./package.json'); \
   fs.writeFileSync('./lib/package.json', JSON.stringify(package, null, 2)); \
   "
 
-
 # Copy few more files to ./lib
 cp README.md lib/
 cp LICENSE lib/

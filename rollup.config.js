@@ -2,6 +2,7 @@ import commonjs from 'rollup-plugin-commonjs';
 import node from 'rollup-plugin-node-resolve';
 import { uglify } from 'rollup-plugin-uglify';
 import replace from 'rollup-plugin-replace';
+import { plugin as analyze } from 'rollup-plugin-analyzer'
 
 function onwarn(message) {
   const suppressed = ['UNRESOLVED_IMPORT', 'THIS_IS_UNDEFINED'];
@@ -57,6 +58,7 @@ export default [
         'process.env.NODE_ENV': JSON.stringify('production'),
       }),
       uglify(),
+      analyze(),
     ],
     onwarn,
   },

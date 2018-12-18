@@ -7,9 +7,6 @@
   "module": "src/index.ts",
   "typings": "lib/index.d.ts",
   "lint": "tslint --project tsconfig.json --config tslint.json",
-  "react-native": {
-    "react-dom/server": false
-  },
   "scripts": {
     "deploy": "cd lib && npm publish",
     "compile": "tsc && mv lib/src/* lib/. && rimraf lib/src",
@@ -38,6 +35,7 @@
   ],
   "devDependencies": {
     "@types/crypto-js": "^3.1.43",
+    "@types/dateformat": "^1.0.1",
     "@types/jest": "^23.3.10",
     "@types/node": "8.10.38",
     "bundlesize": "^0.17.0",
@@ -46,6 +44,7 @@
     "jest": "^23.5.0",
     "rimraf": "2.6.2",
     "rollup": "^0.67.4",
+    "rollup-plugin-analyzer": "^2.1.0",
     "rollup-plugin-commonjs": "9.2.0",
     "rollup-plugin-json": "^3.1.0",
     "rollup-plugin-node-resolve": "3.4.0",
@@ -75,7 +74,7 @@
     "testRegex": "./*/*\\.spec\\.(ts)$"
   },
   "author": "Adam T. Williams",
-  "license": "ISC",
+  "license": "MIT",
   "repository": {
     "type": "git",
     "url": "awill1988/aws-signatures"
